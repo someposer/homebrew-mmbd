@@ -2,11 +2,10 @@ require "formula"
 
 class DmgDownloadStrategy < NoUnzipCurlDownloadStrategy
 	def stage
-		output = `yes | hdiutil attach #{tarball_path}`
-		lines = output.split(/\n/)
-		mountpoint = lines.last.split.last
+		mountpoint = "/Volumes/libmmbd"
+		output = `yes | hdiutil attach -nobrowse #{tarball_path} -mountpoint #{mountpoint}`
 		FileUtils.cp "#{mountpoint}/MakeMKV.app/Contents/lib/libmmbd.dylib", "libmmbd.dylib"
-		`hdiutil detach #{mountpoint}`
+		`hdiutil detach "#{mountpoint}"`
 	end
 end
 
