@@ -17,6 +17,8 @@ class Libmmbd < Formula
 	version "1.8.11"
 	sha1 "0dfb5b5987af92ffff74733b0425fc14aa3df56e"
 
+	conflicts_with "libaacs", :because => "This formula implements libaacs as well as libbdplus"
+
 	def install
 		ln_s "libmmbd.dylib", "libaacs.dylib"
 		ln_s "libmmbd.dylib", "libbdplus.dylib"
