@@ -11,10 +11,10 @@ end
 
 
 class Libmmbd < Formula
-	url "http://www.makemkv.com/download/makemkv_v1.9.0_osx.dmg", :using => DmgDownloadStrategy
+	url "http://www.makemkv.com/download/makemkv_v1.9.7_osx.dmg", :using => DmgDownloadStrategy
 	homepage "http://www.makemkv.com/download/"
-	version "1.9.0"
-	sha1 "fd9af958a79d4a04080c336ef7d3f9c754248bc9"
+	version "1.9.7"
+	sha1 "4ed2ae06f3292ecc0489357f11b2230756a7c894"
 
 	conflicts_with "libaacs", :because => "This formula implements libaacs as well as libbdplus"
 
