@@ -2,7 +2,7 @@ require "formula"
 
 class DmgDownloadStrategy < NoUnzipCurlDownloadStrategy
 	def stage
-		mountpoint = "/Volumes/makemkv_v1.12.0"
+		mountpoint = "/Volumes/makemkv_v1.12.3"
 		output = `yes | hdiutil attach -nobrowse #{cached_location}`
 		FileUtils.cp "#{mountpoint}/MakeMKV.app/Contents/lib/libmmbd.dylib", "libmmbd.dylib"
 		`hdiutil detach "#{mountpoint}"`
@@ -11,10 +11,10 @@ end
 
 
 class Libmmbd < Formula
-	url "https://www.makemkv.com/download/makemkv_v1.12.0_osx.dmg", :using => DmgDownloadStrategy
+	url "https://www.makemkv.com/download/makemkv_v1.12.3_osx.dmg", :using => DmgDownloadStrategy
 	homepage "http://www.makemkv.com/download/"
-	version "1.12.0"
-	sha256 "9b43e950756553e5147c250bb39a6ef61a4b4aaca2a7828a221d49d127faf2f6"
+	version "1.12.3"
+	sha256 "682009477252bda4264f1216cf8d109e8abf1493a25431579c439fcc180ca3ae"
 
 	conflicts_with "libaacs", :because => "This formula implements libaacs as well as libbdplus"
 
@@ -24,4 +24,3 @@ class Libmmbd < Formula
 		lib.install Dir["*.dylib"]
 	end
 end
-
