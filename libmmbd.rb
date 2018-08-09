@@ -3,7 +3,7 @@ require "formula"
 class DmgDownloadStrategy < NoUnzipCurlDownloadStrategy
 	def stage
 		mountpoint = "/Volumes/makemkv_v1.12.0"
-		output = `yes | hdiutil attach -nobrowse #{tarball_path}`
+		output = `yes | hdiutil attach -nobrowse #{cached_location}`
 		FileUtils.cp "#{mountpoint}/MakeMKV.app/Contents/lib/libmmbd.dylib", "libmmbd.dylib"
 		`hdiutil detach "#{mountpoint}"`
 	end
